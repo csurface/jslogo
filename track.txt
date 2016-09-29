@@ -1,0 +1,37 @@
+to start
+  cs
+  hideturtle
+  penup
+  make "side 20
+  make "color "black
+end
+
+to side :length
+  make "side :length
+end
+
+to color :c
+  make "color :c
+end
+
+to pavec :color
+  setpencolor :color pendown filled :color [ fd :side rt 90 fd :side rt 90 fd :side rt 90 fd :side rt 90 ] penup
+end
+
+to pave
+  pavec :color
+end
+
+to move
+  forward :side
+end
+
+to tr
+  fd :side
+  right 90
+end
+
+to tl
+  left 90
+  bk :side
+end

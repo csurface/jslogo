@@ -353,18 +353,18 @@ function initInput() {
     input.setFocus();
   });
 
-  $('#toggle').addEventListener('click', function() {
-    var v = input.getValue();
-    document.body.classList.toggle('single');
-    document.body.classList.toggle('multi');
-    if (!isMulti()) {
-      v = v.replace(/\n/g, '  ');
-    } else {
-      v = v.replace(/\s\s(\s*)/g, '\n$1');
-    }
-    input.setValue(v);
-    input.setFocus();
-  });
+//  $('#toggle').addEventListener('click', function() {
+//    var v = input.getValue();
+//    document.body.classList.toggle('single');
+//    document.body.classList.toggle('multi');
+//    if (!isMulti()) {
+//      v = v.replace(/\n/g, '  ');
+//    } else {
+//      v = v.replace(/\s\s(\s*)/g, '\n$1');
+//    }
+//    input.setValue(v);
+//    input.setFocus();
+//  });
 
   $('#run').addEventListener('click', run);
   $('#stop').addEventListener('click', stop);
@@ -378,6 +378,20 @@ function initInput() {
       input.setFocus();
     }
   });
+
+  // Load the track library.
+  fetch('track.txt')
+      .then(function(response) {
+        if (!response.ok) throw Error(response.statusText);
+        return response.text();
+      })
+      .then(function(text) {
+          console.log(text);
+          input.setValue(text);
+          input.run();
+          input.clear(true);
+      });
+          
 }
 
 
@@ -402,20 +416,20 @@ function initInput() {
 }());
 
 
-//
-// Hook up sidebar links
-//
-(function() {
-  var sidebars = Array.from($$('#sidebar .choice')).map(
-    function(elem) { return elem.id; });
-  sidebars.forEach(function(k) {
-    $('#sb-link-' + k).addEventListener('click', function() {
-      var cl = $('#sidebar').classList;
-      sidebars.forEach(function(sb) { cl.remove(sb); });
-      cl.add(k);
-    });
-  });
-}());
+////
+//// Hook up sidebar links
+////
+//(function() {
+//  var sidebars = Array.from($$('#sidebar .choice')).map(
+//    function(elem) { return elem.id; });
+//  sidebars.forEach(function(k) {
+//    $('#sb-link-' + k).addEventListener('click', function() {
+//      var cl = $('#sidebar').classList;
+//      sidebars.forEach(function(sb) { cl.remove(sb); });
+//      cl.add(k);
+//    });
+//  });
+//}());
 
 
 //
@@ -680,28 +694,28 @@ window.addEventListener('DOMContentLoaded', function() {
   }());
 
   // Populate languages selection list
-  fetch('l10n/languages.txt')
-    .then(function(response) {
-      if (!response.ok) throw Error(response.statusText);
-      return response.text();
-    })
-    .then(function(text) {
-      var select = $('#select-lang');
-      text.split(/\r?\n/g).forEach(function(entry) {
-        var match = /^(\w+)\s+(.*)$/.exec(entry);
-        if (!match) return;
-        var opt = document.createElement('option');
-        opt.value = match[1];
-        opt.textContent = match[2];
-        select.appendChild(opt);
-      });
-      select.value = document.body.lang;
-      select.addEventListener('change', function() {
-        var url = String(document.location);
-        url = url.replace(/[\?#].*/, '');
-        document.location = url + '?lang=' + select.value;
-      });
-    });
+//  fetch('l10n/languages.txt')
+//    .then(function(response) {
+//      if (!response.ok) throw Error(response.statusText);
+//      return response.text();
+//    })
+//    .then(function(text) {
+//      var select = $('#select-lang');
+//      text.split(/\r?\n/g).forEach(function(entry) {
+//        var match = /^(\w+)\s+(.*)$/.exec(entry);
+//        if (!match) return;
+//        var opt = document.createElement('option');
+//        opt.value = match[1];
+//        opt.textContent = match[2];
+//        select.appendChild(opt);
+//      });
+//      select.value = document.body.lang;
+//      select.addEventListener('change', function() {
+//        var url = String(document.location);
+//        url = url.replace(/[\?#].*/, '');
+//        document.location = url + '?lang=' + select.value;
+//      });
+//    });
 
   localizationComplete.then(initInput);
 
