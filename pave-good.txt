@@ -1,0 +1,51 @@
+to flag
+  setpencolor 4
+  pendown fd 20 rt 90 fd 20 rt 90 fd 20 rt 90 fd 20 rt 90 penup
+  setheading 0
+end
+
+to pave
+  setpencolor 0 pendown filled "black [ fd 20 rt 90 fd 20 rt 90 fd 20 rt 90 fd 20 rt 90 ] penup
+end
+
+to move
+  forward 20
+end
+
+to tr
+  fd 20
+  right 90
+end
+
+to tl
+  left 90
+  bk 20
+end
+
+clearscreen
+showturtle
+flag
+repeat 3 [
+  move
+  pave
+]
+tr
+repeat 3 [
+  move
+  pave
+]
+tl
+repeat 3 [
+  move
+  pave
+]
+tl
+repeat 6 [
+  move
+  pave
+]
+tr
+repeat 6 [
+  move
+  pave
+]

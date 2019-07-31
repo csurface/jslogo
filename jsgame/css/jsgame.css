@@ -1,0 +1,14 @@
+
+.error-text {
+    font-family: monospace;
+    background-color: #f7f7f7;
+}
+
+.board-container {
+    min-width: 240px;
+    min-height: 320px;
+    width: 100%;
+    height: 100%;
+    background-color: #f7f7f7;
+    border: 1px solid black;
+}

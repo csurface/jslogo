@@ -1,0 +1,21 @@
+to pave
+  setpencolor 0 pendown filled "black [ rt 90 fd 10 rt 90 fd 10 rt 90 fd 10 rt 90 fd 10 ] penup
+end
+
+to fw
+  penup fd 10 wait 60
+end
+
+to tr
+  right 90
+END
+
+clearscreen
+hideturtle
+repeat 4 [
+  repeat 10 [
+    fw
+    pave
+  ]
+  tr
+]
