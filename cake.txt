@@ -1,0 +1,55 @@
+start
+color "green
+side 10
+tr
+drawsa 20
+tr
+tr
+drawsa 2
+tr
+drawsa 12
+tl
+drawsa 16
+tl
+drawsa 12
+tr
+tr
+drawsa 12
+tr
+drawsa 3
+tl
+color "blue
+drawsa 5
+move
+move
+pave
+tr
+tr
+repeat 7 [
+  move
+]
+tl
+repeat 5 [
+  move
+]
+tl
+drawsa 5
+move
+move
+pave
+tl
+tl
+move
+move
+repeat 5 [
+  move
+]
+tl
+repeat 5 [
+  move
+]
+tl
+drawsa 5
+move
+move
+pave

@@ -1,0 +1,20 @@
+move
+
+pave
+
+tr
+
+tl
+
+repeat N [
+]
+
+start
+
+side :length
+
+color :c
+
+home
+
+drawsa :n

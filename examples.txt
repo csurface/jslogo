@@ -1,32 +1,57 @@
-move
+to ta
+  tr
+  tr
+END
 
-pave
+to drawCandle
+  	color "blue
+    tl
+    drawsa 5
+  	repeat 2 [move]
+  	color "red
+    pave
+    ta
+    repeat 7 [move]
+    tl
+  	color "black
+  END
 
-tr
-
-tl
-
-repeat N [
-]
+TO drawCake
+  tr
+  drawsa 20
+  tl
+  tl
+  move
+  move
+  tr
+  drawsa 12
+  tl
+  drawsa 15
+  tl
+  drawsa 12
+  ta
+  repeat 12 [move]
+  tr
+  repeat 7 [
+    move
+    drawCandle
+    move
+  ]
+  move
+  tr
+  repeat 12 [move]
+  tl
+END
 
 start
+side 5
+tl
+repeat 20 [move]
+ta
+tl
 
-side :length
-
-color :c
-
-home
-
-to build
-  start
-  side 10
-  color "blue
-  repeat 4 [
-    repeat 5 [
-      move
-      pave
-    ]
-    tr
-  ]
-end
-build
+repeat 6 [
+  drawCake
+  repeat 5 [move]
+  tl
+]

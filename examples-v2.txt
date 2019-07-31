@@ -1,0 +1,48 @@
+move
+
+pave
+
+tr
+
+tl
+
+repeat N [
+]
+
+start
+
+side :length
+
+color :c
+
+home
+
+to drawsa :n
+  repeat :n [
+    move
+    pave
+  ]
+end
+
+start
+side 10
+color "blue
+repeat 5 [
+  move
+  pave
+]
+tr
+repeat 10 [
+  move
+  pave
+]
+tr
+repeat 5 [
+  move
+  pave
+]
+tr
+repeat 10 [
+  move
+  pave
+]

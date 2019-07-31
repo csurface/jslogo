@@ -474,7 +474,12 @@ function insertSnippet(text, parent, key, options) {
     snippet.title = "Click to edit";
     snippet.addEventListener('click', function() {
       input.setMulti();
-      input.setValue(text);
+      //input.setValue(text);
+      var v = input.getValue();
+      if (v.length > 0) {
+          v = v + '\n';
+      }
+      input.setValue(v + text);
     });
     if (key) {
       snippets.set(key, snippet);
